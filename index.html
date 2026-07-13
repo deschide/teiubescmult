@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pentru iubirea mea ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9ecb,#ffd6e8);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:25px;
+max-width:450px;
+text-align:center;
+box-shadow:0 0 25px rgba(0,0,0,.2);
+position:relative;
+z-index:2;
+}
+
+h1{
+color:#ff2d75;
+margin-bottom:15px;
+}
+
+button{
+background:#ff2d75;
+color:white;
+border:none;
+padding:15px 30px;
+font-size:18px;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#content{
+display:none;
+}
+
+#message{
+font-size:20px;
+line-height:1.6;
+margin-top:20px;
+min-height:180px;
+}
+
+img{
+width:100%;
+border-radius:20px;
+margin-top:20px;
+opacity:0;
+transform:scale(.8);
+transition:2s;
+}
+
+.heart{
+position:absolute;
+color:#ff2d75;
+animation:fall linear infinite;
+user-select:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100vh);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div id="start">
+
+<h1>❤️ O surpriză pentru tine ❤️</h1>
+
+<p style="margin:20px;">
+Am pregătit ceva special...
+</p>
+
+<button onclick="startLove()">
+Apasă aici ❤️
+</button>
+
+</div>
+
+<div id="content">
+
+<h1>❤️ Pentru iubirea mea ❤️</h1>
+
+<p id="message"></p>
+
+<img id="photo" src="noi.jpg">
+
+</div>
+
+</div>
+
+<script>
+
+const text="💌 Dacă ai deschis acest link, înseamnă că vreau să-ți amintesc cât de mult însemni pentru mine.\n\n❤️ Te iubesc din tot sufletul meu.\n\nFiecare clipă alături de tine este o amintire pe care o păstrez în inimă. Îți mulțumesc că faci parte din viața mea și că îmi faci fiecare zi mai frumoasă. Ești cea mai frumoasă surpriză pe care mi-a oferit-o viața. ❤️";
+
+function startLove(){
+
+document.getElementById("start").style.display="none";
+
+document.getElementById("content").style.display="block";
+
+let i=0;
+
+let speed=40;
+
+let interval=setInterval(function(){
+
+document.getElementById("message").innerHTML=text.substring(0,i).replace(/\n/g,"<br>");
+
+i++;
+
+if(i>text.length){
+
+clearInterval(interval);
+
+document.getElementById("photo").style.opacity="1";
+
+document.getElementById("photo").style.transform="scale(1)";
+
+}
+
+},speed);
+
+}
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+heart.style.animationDuration=(4+Math.random()*6)+"s";
+
+heart.style.animationDelay=Math.random()*6+"s";
+
+document.body.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
